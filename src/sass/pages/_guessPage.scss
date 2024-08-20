@@ -1,0 +1,93 @@
+.guess-page {
+  padding: 2rem;
+
+  &__info {
+    &__heading {
+      padding: 4rem 0;
+      font-size: 4rem;
+      text-align: center;
+    }
+
+    &__blurb {
+      font-size: 2.6rem;
+      padding: 2rem 1rem;
+    }
+  }
+
+  &__week {
+    padding-top: 2rem;
+    & h1,
+    & p {
+      padding-left: 1rem;
+    }
+
+    & h1 {
+      font-size: 3rem;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    & p {
+      font-size: 2rem;
+    }
+  }
+
+  &__form__match {
+    height: 23rem;
+    width: 30rem;
+    border: 2px solid black;
+    padding: 1rem;
+    text-align: center;
+    margin: 1rem;
+    display: inline-block;
+    box-shadow: 0 1rem 4rem rgba($colour-black, 0.2);
+    background-color: $colour-form-light2;
+
+    &__heading {
+      font-size: 2.2rem;
+      text-decoration: underline;
+      line-height: 3rem;
+    }
+  }
+
+  &__form__home,
+  &__form__away {
+    padding: 2rem;
+    font-size: 2rem;
+  }
+
+  &__form__home {
+    padding-bottom: 1.4rem;
+  }
+
+  &__form__away {
+    padding-top: 1.4rem;
+  }
+
+  &__form__home__options,
+  &__form__away__options {
+    padding: 5px;
+    margin-left: 10px;
+  }
+
+  &__form_vs {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  &__submit {
+    width: 100%;
+    display: inline-block;
+
+    &__closed {
+      text-align: center;
+      font-size: 3rem;
+    }
+  }
+}
+
+.sub-button-box {
+  text-align: center;
+  padding-top: 2rem;
+  margin-bottom: 1rem;
+}

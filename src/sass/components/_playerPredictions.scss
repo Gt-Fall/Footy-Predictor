@@ -1,0 +1,89 @@
+.playerPre {
+  padding: 2rem;
+
+  @include respond(phone) {
+    padding: 0;
+  }
+
+  &__heading {
+    padding: 2rem 1rem;
+    padding-bottom: 0;
+    font-size: 2rem;
+    text-align: left;
+  }
+
+  &__match {
+    height: 18rem;
+    width: 36rem;
+    border: 2px solid black;
+    padding: 1rem;
+    text-align: center;
+    margin: 1rem;
+    display: inline-block;
+    box-shadow: 0 1rem 4rem rgba($colour-black, 0.2);
+    background-color: $colour-form-light2;
+
+    @include respond(phone) {
+      padding: 0;
+      padding-left: 1rem;
+
+      margin: 0;
+      margin-bottom: 1rem;
+      margin-left: 0.5rem;
+      width: 98%;
+    }
+
+    &__heading {
+      font-size: 2rem;
+      text-decoration: underline;
+      line-height: 3rem;
+    }
+
+    &__table {
+      line-height: 3rem;
+      height: 6rem;
+      width: 34rem;
+    }
+
+    &__home,
+    &__away {
+      border: 1px solid;
+      font-size: 2rem;
+      &__team {
+        width: 70%;
+        text-align: left;
+      }
+
+      &__score {
+        border: 1px solid;
+        width: 15%;
+        background-color: whitesmoke;
+      }
+      &__actual {
+        border: 1px solid;
+        width: 15%;
+        &__green {
+          background-color: lightgreen;
+          border: 1px solid;
+        }
+        &__red {
+          background-color: palevioletred;
+          border: 1px solid;
+        }
+      }
+    }
+
+    &__home {
+      padding-bottom: 1.4rem;
+    }
+
+    &__away {
+      padding-bottom: 1.4rem;
+    }
+
+    &__vs {
+      font-size: 2rem;
+      text-align: center;
+    }
+  }
+}

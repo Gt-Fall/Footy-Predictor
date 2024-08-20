@@ -1,0 +1,42 @@
+.header {
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(red, 0.7) 0%,
+      rgba(blue, 0.2) 50%,
+      rgba(yellow, 0.4) 100%
+    ),
+    url(../img/stadium.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  height: 30rem;
+
+  @include respond(phone) {
+    height: 10rem;
+  }
+
+  &__text {
+    color: cornsilk;
+    font-size: 8rem;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate((-90%, -25%));
+    line-height: 10rem;
+  }
+
+  &__logo {
+    // position: absolute;
+    // top: 35%;
+    // left: 50%;
+    // transform: translate((10%, -40%));
+    float: right;
+    height: 93%;
+    padding-right: 4rem;
+    padding-top: 1rem;
+
+    @include respond(phone) {
+      display: none;
+    }
+  }
+}
