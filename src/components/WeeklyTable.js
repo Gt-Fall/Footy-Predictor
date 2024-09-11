@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 export default function WeeklyTable({ players, matches, thisMonth, gameWeek }) {
   let position = 1;
-  let lastPlayed = '';
-  let playersPositions = '';
+  let lastPlayed = "";
+  let playersPositions = "";
   let gamesPlayed = 0;
   let numplayers = 0;
 
@@ -23,21 +23,21 @@ export default function WeeklyTable({ players, matches, thisMonth, gameWeek }) {
           lastPlayed = `${played.Home} vs ${played.Away}`;
           gamesPlayed++;
           if (
-            guess.M1H_Guesses[played.Week - 1][played.MatchNumber - 1] ==
+            guess.M2H_Guesses[played.Week - 1][played.MatchNumber - 1] ==
             played.HomeGoals
           ) {
             goalPoints++;
           }
           if (
-            guess.M1A_Guesses[played.Week - 1][played.MatchNumber - 1] ==
+            guess.M2A_Guesses[played.Week - 1][played.MatchNumber - 1] ==
             played.AwayGoals
           ) {
             goalPoints++;
           }
           if (
-            guess.M1H_Guesses[played.Week - 1][played.MatchNumber - 1] ==
+            guess.M2H_Guesses[played.Week - 1][played.MatchNumber - 1] ==
               played.HomeGoals &&
-            guess.M1A_Guesses[played.Week - 1][played.MatchNumber - 1] ==
+            guess.M2A_Guesses[played.Week - 1][played.MatchNumber - 1] ==
               played.AwayGoals
           ) {
             resultPoints++;
@@ -45,22 +45,22 @@ export default function WeeklyTable({ players, matches, thisMonth, gameWeek }) {
           }
           if (
             played.HomeGoals == played.AwayGoals &&
-            guess.M1H_Guesses[played.Week - 1][played.MatchNumber - 1] ==
-              guess.M1A_Guesses[played.Week - 1][played.MatchNumber - 1]
+            guess.M2H_Guesses[played.Week - 1][played.MatchNumber - 1] ==
+              guess.M2A_Guesses[played.Week - 1][played.MatchNumber - 1]
           ) {
             outcomePoints++;
           }
           if (
             played.HomeGoals > played.AwayGoals &&
-            guess.M1H_Guesses[played.Week - 1][played.MatchNumber - 1] >
-              guess.M1A_Guesses[played.Week - 1][played.MatchNumber - 1]
+            guess.M2H_Guesses[played.Week - 1][played.MatchNumber - 1] >
+              guess.M2A_Guesses[played.Week - 1][played.MatchNumber - 1]
           ) {
             outcomePoints++;
           }
           if (
             played.HomeGoals < played.AwayGoals &&
-            guess.M1H_Guesses[played.Week - 1][played.MatchNumber - 1] <
-              guess.M1A_Guesses[played.Week - 1][played.MatchNumber - 1]
+            guess.M2H_Guesses[played.Week - 1][played.MatchNumber - 1] <
+              guess.M2A_Guesses[played.Week - 1][played.MatchNumber - 1]
           ) {
             outcomePoints++;
           }
@@ -85,7 +85,7 @@ export default function WeeklyTable({ players, matches, thisMonth, gameWeek }) {
     <>
       <div className="section-leauge">
         <div className="section-leauge__heading">
-          <h1>August Week {gameWeek} League</h1>
+          <h1>September Week {gameWeek} League</h1>
         </div>
         <div className="section-leauge__info section-leauge__info-overall">
           <p>
@@ -115,9 +115,9 @@ export default function WeeklyTable({ players, matches, thisMonth, gameWeek }) {
                 <tr>
                   <td>{position++}</td>
                   <td>
-                    {position == 2 && gamesPlayed / numplayers == 8 ? '🏆' : ''}
+                    {position == 2 && gamesPlayed / numplayers == 8 ? "🏆" : ""}
                     {standing.Player_Id}
-                    {position == 2 && gamesPlayed / numplayers == 8 ? '🏆' : ''}
+                    {position == 2 && gamesPlayed / numplayers == 8 ? "🏆" : ""}
                   </td>
                   <td>{standing.outcomePoints}</td>
                   <td> {standing.goalPoints}</td>

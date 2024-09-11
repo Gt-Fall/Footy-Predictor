@@ -1,4 +1,4 @@
-import { useState, useEffect, useLayoutEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from "react";
 
 export default function PostHome({ matches, randomP, randomPWeek }) {
   const [result1, setResult1] = useState([]);
@@ -21,7 +21,7 @@ export default function PostHome({ matches, randomP, randomPWeek }) {
 
     function getMatches() {
       matches.map((match) =>
-        match.Month == 'Aug'
+        match.Month == "Sep"
           ? match.Played
             ? playedgames.push(match)
             : gamestocome.push(match)
@@ -82,7 +82,7 @@ export default function PostHome({ matches, randomP, randomPWeek }) {
 
       <div className="home__last-three">
         <h2 className="home__last-three__heading">Lastest Results</h2>
-        {console.log('result 1', result1)}
+        {console.log("result 1", result1)}
         {result1 ? (
           <div className="resultsList__match">
             <p className="resultsList__match__heading">{result1.Date} </p>
@@ -109,7 +109,7 @@ export default function PostHome({ matches, randomP, randomPWeek }) {
             </table>
           </div>
         ) : (
-          'No Games Played Yet'
+          "No Games Played Yet This Month"
         )}
 
         {result2 ? (
@@ -138,7 +138,7 @@ export default function PostHome({ matches, randomP, randomPWeek }) {
             </table>
           </div>
         ) : (
-          ''
+          ""
         )}
 
         {result3 ? (
@@ -167,7 +167,7 @@ export default function PostHome({ matches, randomP, randomPWeek }) {
             </table>
           </div>
         ) : (
-          ''
+          ""
         )}
       </div>
 
@@ -275,12 +275,12 @@ export default function PostHome({ matches, randomP, randomPWeek }) {
           {matches.map((match) =>
             randomP.M1H_Guesses &&
             match.Week == randomPWeek &&
-            match.Month == 'Aug' ? (
+            match.Month == "Sep" ? (
               <p className="home__random__scores__fixture">
-                {match.MatchNumber}. {match.Home}{' '}
-                {randomP.M1H_Guesses[randomPWeek - 1][match.MatchNumber - 1]} -{' '}
-                {match.Away}{' '}
-                {randomP.M1A_Guesses[randomPWeek - 1][match.MatchNumber - 1]}
+                {match.MatchNumber}. {match.Home}{" "}
+                {randomP.M2H_Guesses[randomPWeek - 1][match.MatchNumber - 1]} -{" "}
+                {match.Away}{" "}
+                {randomP.M2A_Guesses[randomPWeek - 1][match.MatchNumber - 1]}
               </p>
             ) : null
           )}
@@ -308,8 +308,8 @@ export default function PostHome({ matches, randomP, randomPWeek }) {
             <p>Wk 1 - Owen M (19)</p>
             <p>Wk 2 - Amy M (13)</p>
             <p>Wk 3 - Steve R + Fraser D (23)</p>
-            <p>Wk 4 - </p>
-            <p>Wk 5 - </p>
+            <p>Wk 4 - Chris G + Amy M (18)</p>
+            <p>Wk 5 - Ruth D (16)</p>
           </div>
           <div className="col-1-of-3">
             <p>Wk 6 - </p>
@@ -332,7 +332,7 @@ export default function PostHome({ matches, randomP, randomPWeek }) {
             Monthly Winners 🏆
           </h3>
           <div className="col-1-of-2">
-            <p>August - </p>
+            <p>August - Ruth D (69)</p>
             <p>September - </p>
             <p>October - </p>
             <p>November - </p>

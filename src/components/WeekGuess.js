@@ -1,4 +1,4 @@
-import supabase from './supabase';
+import supabase from "./supabase";
 
 export default function WeekGuess({
   matches,
@@ -15,9 +15,9 @@ export default function WeekGuess({
 
   function getHome(match) {
     if (logedIn) {
-      homeGuesses = logedInPlayer.M2H_Guesses[selectedWeek - 1];
-      if (logedInPlayer.M2H_Guesses[selectedWeek - 1]) {
-        return logedInPlayer.M2H_Guesses[selectedWeek - 1][
+      homeGuesses = logedInPlayer.M3H_Guesses[selectedWeek - 1];
+      if (logedInPlayer.M3H_Guesses[selectedWeek - 1]) {
+        return logedInPlayer.M3H_Guesses[selectedWeek - 1][
           match.MatchNumber - 1
         ];
       }
@@ -28,9 +28,9 @@ export default function WeekGuess({
 
   function getAway(match) {
     if (logedIn) {
-      awayGuesses = logedInPlayer.M2A_Guesses[selectedWeek - 1];
-      if (logedInPlayer.M2A_Guesses[selectedWeek - 1]) {
-        return logedInPlayer.M2A_Guesses[selectedWeek - 1][
+      awayGuesses = logedInPlayer.M3A_Guesses[selectedWeek - 1];
+      if (logedInPlayer.M3A_Guesses[selectedWeek - 1]) {
+        return logedInPlayer.M3A_Guesses[selectedWeek - 1][
           match.MatchNumber - 1
         ];
       }
@@ -44,9 +44,9 @@ export default function WeekGuess({
 
     if (logedIn) {
       async function sendPredictions() {
-        const homeGuess = logedInPlayer.M2H_Guesses;
+        const homeGuess = logedInPlayer.M3H_Guesses;
         homeGuess[selectedWeek - 1] = homeGuesses;
-        const awayGuess = logedInPlayer.M2A_Guesses;
+        const awayGuess = logedInPlayer.M3A_Guesses;
         awayGuess[selectedWeek - 1] = awayGuesses;
         // const homeGuess = logedInPlayer.M1H_Guesses.with(
         //   selectedWeek - 1,
@@ -60,16 +60,16 @@ export default function WeekGuess({
         //The above Code would work on Chrome and IE but not on Safari.
 
         const { data, error } = await supabase
-          .from('Players')
-          .update({ M2H_Guesses: homeGuess, M2A_Guesses: awayGuess })
-          .eq('Surname', logedInPlayer.Surname)
-          .eq('Code', logedInCode)
+          .from("Players")
+          .update({ M3H_Guesses: homeGuess, M3A_Guesses: awayGuess })
+          .eq("Surname", logedInPlayer.Surname)
+          .eq("Code", logedInCode)
           .select();
       }
       sendPredictions();
-      alert('Predictions Sending Sucessful!');
+      alert("Predictions Sending Sucessful!");
     } else {
-      alert('not Logged In so cant save');
+      alert("not Logged In so cant save");
     }
     // if (homeGuesses.length != 36 || awayGuesses.length != 36) {
     //   alert('Error Sending, missing scores. Try again ');
@@ -94,7 +94,7 @@ export default function WeekGuess({
     <>
       <form className="guess-page__form" onSubmit={handleSubmit}>
         {matches.map((match) =>
-          match.Week == selectedWeek && match.Month == 'Sep' ? (
+          match.Week == selectedWeek && match.Month == "Oct" ? (
             <div className="guess-page__form__match" key={match.id}>
               <p className="guess-page__form__match__heading">{match.Date}</p>
               <p className="guess-page__form__match__heading">{match.Comp}</p>

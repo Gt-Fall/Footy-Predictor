@@ -1,8 +1,8 @@
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
-import RandomSG from '../components/RandomSG';
-import GuessesForm from '../components/GuessesForm';
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
+import RandomSG from "../components/RandomSG";
+import GuessesForm from "../components/GuessesForm";
 
 export default function Guesses({
   matches,

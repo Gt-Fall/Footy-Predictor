@@ -1,6 +1,6 @@
-import WeekGuess from './WeekGuess';
-import Login from './Login';
-import React, { useState, useEffect } from 'react';
+import WeekGuess from "./WeekGuess";
+import Login from "./Login";
+import React, { useState, useEffect } from "react";
 
 export default function GuessesForm({
   matches,
@@ -14,7 +14,7 @@ export default function GuessesForm({
 }) {
   function handleSubmit(e) {
     e.preventDefault();
-    console.log('Login Submitted');
+    console.log("Login Submitted");
   }
 
   return (
@@ -22,7 +22,7 @@ export default function GuessesForm({
       <div className="guess-page">
         <div className="guess-page__info">
           <h1 className="guess-page__info__heading">
-            Make Septembers Predictions Here - Deadline 02/09/2024
+            Make October Predictions Here - Deadline 01/10/2024
           </h1>
           <p className="guess-page__info__blurb">
             Login with your surname and code. (Or your predictions will not be
@@ -44,8 +44,8 @@ export default function GuessesForm({
         <div className="guess-page__week">
           <h1>Week One Games</h1>
           <p>
-            Its an International week! So we have 8 games from the Nations
-            League covering Thursday to Sunday.
+            Games from accross England and Scotland this week, Wildcard from
+            Italy this week.
           </p>
           <div className="guess-page__week_block">
             <WeekGuess
@@ -62,8 +62,8 @@ export default function GuessesForm({
         <div className="guess-page__week">
           <h1>Week Two Games</h1>
           <p>
-            Back to normal this week. Fife and North London Derbies and the wild
-            card from Austria.
+            Interationals again! This time spread over 6 days to give the boring
+            old gap in domestic football some spice!
           </p>
 
           <div className="guess-page__week_block">
@@ -81,9 +81,9 @@ export default function GuessesForm({
         <div className="guess-page__week">
           <h1>Week Three Games</h1>
           <p>
-            Scottish League cup this week and the games not anouncced yet so no
-            SPL games. Milan Derby is the wild card, Man City vs Arsenal and the
-            big one East Fife taking on Peterhead in Leauge 2.
+            Back to domestic fooball and a big EPL game as Liverpool take on
+            Chelsea. Wild card is coming from Greece this week (good Luck with
+            that!)
           </p>
 
           <div className="guess-page__week_block">
@@ -101,8 +101,8 @@ export default function GuessesForm({
         <div className="guess-page__week">
           <h1>Week Four Games</h1>
           <p>
-            EPL and SPL to see out the month. Also a massive game in Germany
-            takes the wild card slot.
+            A big game from each country this week. Hibs v Hearts, Arsenal v
+            Liverpool and Barca v Real.
           </p>
 
           <div className="guess-page__week_block">

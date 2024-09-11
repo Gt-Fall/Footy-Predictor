@@ -1,8 +1,8 @@
-import Header from '../components/Header';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import PlayerPredictions from '../components/PlayerPredictions';
-import Login from '../components/Login';
+import Header from "../components/Header";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import PlayerPredictions from "../components/PlayerPredictions";
+import Login from "../components/Login";
 
 export default function Predictions({
   gameWeek,
@@ -58,13 +58,13 @@ export default function Predictions({
           logedIn={logedIn}
           weekNumber={4}
         />
-        <PlayerPredictions
+        {/* <PlayerPredictions
           matches={matches}
           thisMonth={thisMonth}
           logedInPlayer={logedInPlayer}
           logedIn={logedIn}
           weekNumber={5}
-        />
+        /> */}
       </div>
       <Footer />
     </>
