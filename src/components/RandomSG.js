@@ -1,4 +1,4 @@
-import supabase from "./supabase";
+import supabase from './supabase';
 
 export default function RandomSG() {
   let scores = [
@@ -34,16 +34,16 @@ export default function RandomSG() {
     }
     monthsHome[w] = homeGuesses;
   }
-  console.log("scores length", scores.length);
-  console.log(monthsAway);
-  console.log(monthsHome);
+  // console.log("scores length", scores.length);
+  // console.log(monthsAway);
+  // console.log(monthsHome);
 
   async function sendPredictions() {
     const { data, error } = await supabase
-      .from("Players")
-      .update({ M2H_Guesses: monthsHome, M2A_Guesses: monthsAway })
-      .eq("Surname", "PERSON")
-      .eq("Code", "1234Pass")
+      .from('Players')
+      .update({ M6H_Guesses: monthsHome, M6A_Guesses: monthsAway })
+      .eq('Surname', 'PERSON')
+      .eq('Code', '1234Pass')
       .select();
   }
   sendPredictions();

@@ -4,6 +4,7 @@ import scoreIcon from '../img/scoreIcon.png';
 import tableIcon from '../img/tableIcon.png';
 import predictIcon from '../img/predictIcon.png';
 import saveIcon from '../img/saveIcon.png';
+import cupIcon from '../img/cup.png';
 import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 
@@ -35,6 +36,12 @@ export default function Navbar() {
             <Link to="/tables" className="navbar__links">
               <img src={tableIcon} alt="" className="navbar__icon" />
               Tables
+            </Link>
+          </li>
+          <li>
+            <Link to="/cup" className="navbar__links">
+              <img src={cupIcon} alt="" className="navbar__icon" />
+              Cup
             </Link>
           </li>
           <li>
@@ -91,6 +98,16 @@ export default function Navbar() {
               className="navbar__hamburger__bar__icon"
             />
             <span className="navbar__hamburger__bar__link__text">Tables</span>
+          </Link>
+        </span>
+        <span className="navbar__hamburger__bar">
+          <Link to="/cup" className="navbar__hamburger__bar__link">
+            <img
+              src={cupIcon}
+              alt=""
+              className="navbar__hamburger__bar__icon"
+            />
+            <span className="navbar__hamburger__bar__link__text">Cup</span>
           </Link>
         </span>
         <span className="navbar__hamburger__bar">

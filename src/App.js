@@ -1,27 +1,28 @@
-import { Routes, Route } from "react-router-dom";
-import React, { useState, useEffect } from "react";
-import Home from "./pages/Home";
-import Results from "./pages/Results";
-import Tables from "./pages/Tables";
-import Predictions from "./pages/Predictions";
-import Guesses from "./pages/Guesses";
-import supabase from "./components/supabase";
-import "./css/style.css";
+import { Routes, Route } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import Home from './pages/Home';
+import Results from './pages/Results';
+import Tables from './pages/Tables';
+import Predictions from './pages/Predictions';
+import Guesses from './pages/Guesses';
+import Cup from './pages/Cup';
+import supabase from './components/supabase';
+import './css/style.css';
 
 export default function App() {
   const [matches, setMatches] = useState([]);
   const [players, setPlayers] = useState([]);
   const [logedIn, setLogedIn] = useState(false);
   const [logedInPlayer, setLogedInPlayer] = useState({});
-  const [logedInCode, setLogedInCode] = useState("");
+  const [logedInCode, setLogedInCode] = useState('');
   const [randomP, setRandomP] = useState({});
-  const [randomPWeek, setRandomPWeek] = useState(1);
-  const gameWeek = 1;
-  const thisMonth = "Sep";
+  const randomPWeek = 3;
+  const gameWeek = 3;
+  const thisMonth = 'Dec';
 
   useEffect(function () {
     async function getMatches() {
-      const { data: games, error } = await supabase.from("Matches").select("*");
+      const { data: games, error } = await supabase.from('Matches').select('*');
       const gameArray = [...games].sort(
         (a, b) => a.Week - b.Week || a.MatchNumber - b.MatchNumber
       );
@@ -31,8 +32,8 @@ export default function App() {
 
     async function getPlayers() {
       const { data: players, error } = await supabase
-        .from("Players")
-        .select("*");
+        .from('Players')
+        .select('*');
       setPlayers(players);
     }
     getPlayers();
@@ -42,7 +43,7 @@ export default function App() {
     function () {
       function getRandomP() {
         players.map((player) =>
-          player.Surname == "PERSON" ? setRandomP(player) : null
+          player.Surname == 'PERSON' ? setRandomP(player) : null
         );
       }
       getRandomP();
@@ -84,6 +85,7 @@ export default function App() {
             />
           }
         />
+        <Route path="cup" element={<Cup players={players} />} />
         <Route
           path="predictions"
           element={

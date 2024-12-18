@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 export default function PlayerPredictions({
   matches,
@@ -7,18 +7,16 @@ export default function PlayerPredictions({
   logedIn,
   weekNumber,
 }) {
-  //   const [homePredict, setHomePredict] = useState();
-
   function getHomePrediction(week, match) {
     return logedIn
-      ? logedInPlayer.M2H_Guesses[week - 1][match.MatchNumber - 1]
-      : "-";
+      ? logedInPlayer.M5H_Guesses[week - 1][match.MatchNumber - 1]
+      : '-';
   }
 
   function getAwayPrediction(week, match) {
     return logedIn
-      ? logedInPlayer.M2A_Guesses[week - 1][match.MatchNumber - 1]
-      : "-";
+      ? logedInPlayer.M5A_Guesses[week - 1][match.MatchNumber - 1]
+      : '-';
   }
 
   return (
@@ -46,12 +44,12 @@ export default function PlayerPredictions({
                       logedIn
                         ? getHomePrediction(weekNumber, match) ==
                           match.HomeGoals
-                          ? "playerPre__match__home__actual__green"
-                          : "playerPre__match__home__actual__red"
-                        : "playerPre__match__home__actual"
+                          ? 'playerPre__match__home__actual__green'
+                          : 'playerPre__match__home__actual__red'
+                        : 'playerPre__match__home__actual'
                     }
                   >
-                    {logedIn ? getHomePrediction(weekNumber, match) : "-"}
+                    {logedIn ? getHomePrediction(weekNumber, match) : '-'}
                   </td>
                   <td className="playerPre__match__home__score">
                     {match.HomeGoals}
@@ -64,12 +62,12 @@ export default function PlayerPredictions({
                       logedIn
                         ? getAwayPrediction(weekNumber, match) ==
                           match.AwayGoals
-                          ? "playerPre__match__home__actual__green"
-                          : "playerPre__match__home__actual__red"
-                        : "playerPre__match__home__actual"
+                          ? 'playerPre__match__home__actual__green'
+                          : 'playerPre__match__home__actual__red'
+                        : 'playerPre__match__home__actual'
                     }
                   >
-                    {logedIn ? getAwayPrediction(weekNumber, match) : "-"}
+                    {logedIn ? getAwayPrediction(weekNumber, match) : '-'}
                   </td>
                   <td className="playerPre__match__away__score">
                     {match.AwayGoals}

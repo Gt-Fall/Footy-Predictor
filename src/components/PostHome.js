@@ -1,4 +1,4 @@
-import { useState, useEffect, useLayoutEffect } from "react";
+import { useState, useEffect } from 'react';
 
 export default function PostHome({ matches, randomP, randomPWeek }) {
   const [result1, setResult1] = useState([]);
@@ -8,20 +8,13 @@ export default function PostHome({ matches, randomP, randomPWeek }) {
   const [fixture2, setFixture2] = useState([]);
   const [fixture3, setFixture3] = useState([]);
 
-  // let result1 = [];
-  //   let result2 = [];
-  //   let result3 = [];
-  //   let fixture1 = [];
-  //   let fixture2 = [];
-  //   let fixture3 = [];
-
   useEffect(() => {
     let playedgames = [];
     let gamestocome = [];
 
     function getMatches() {
       matches.map((match) =>
-        match.Month == "Sep"
+        match.Month == 'Dec'
           ? match.Played
             ? playedgames.push(match)
             : gamestocome.push(match)
@@ -54,10 +47,6 @@ export default function PostHome({ matches, randomP, randomPWeek }) {
     getMatches();
   }, [matches]);
 
-  // function getRandomPHome(match) {
-  //   return randomP.M1H_Guesses[randomPWeek - 1][match.MatchNumber - 1];
-  // }
-
   return (
     <>
       <div className="home__welcome">
@@ -82,7 +71,6 @@ export default function PostHome({ matches, randomP, randomPWeek }) {
 
       <div className="home__last-three">
         <h2 className="home__last-three__heading">Lastest Results</h2>
-        {console.log("result 1", result1)}
         {result1 ? (
           <div className="resultsList__match">
             <p className="resultsList__match__heading">{result1.Date} </p>
@@ -109,7 +97,7 @@ export default function PostHome({ matches, randomP, randomPWeek }) {
             </table>
           </div>
         ) : (
-          "No Games Played Yet This Month"
+          'No Games Played Yet This Month'
         )}
 
         {result2 ? (
@@ -138,7 +126,7 @@ export default function PostHome({ matches, randomP, randomPWeek }) {
             </table>
           </div>
         ) : (
-          ""
+          ''
         )}
 
         {result3 ? (
@@ -167,7 +155,7 @@ export default function PostHome({ matches, randomP, randomPWeek }) {
             </table>
           </div>
         ) : (
-          ""
+          ''
         )}
       </div>
 
@@ -273,14 +261,14 @@ export default function PostHome({ matches, randomP, randomPWeek }) {
             This Weeks Random P predictions:
           </h3>
           {matches.map((match) =>
-            randomP.M1H_Guesses &&
+            randomP.M5H_Guesses &&
             match.Week == randomPWeek &&
-            match.Month == "Sep" ? (
+            match.Month == 'Dec' ? (
               <p className="home__random__scores__fixture">
-                {match.MatchNumber}. {match.Home}{" "}
-                {randomP.M2H_Guesses[randomPWeek - 1][match.MatchNumber - 1]} -{" "}
-                {match.Away}{" "}
-                {randomP.M2A_Guesses[randomPWeek - 1][match.MatchNumber - 1]}
+                {match.MatchNumber}. {match.Home}{' '}
+                {randomP.M5H_Guesses[randomPWeek - 1][match.MatchNumber - 1]} -{' '}
+                {match.Away}{' '}
+                {randomP.M5A_Guesses[randomPWeek - 1][match.MatchNumber - 1]}
               </p>
             ) : null
           )}
@@ -295,47 +283,77 @@ export default function PostHome({ matches, randomP, randomPWeek }) {
           <h3>🎄 Christmas #1 🎄</h3>
           <h3>- -</h3>
           <h3>⭐️ Most Weekly Wins ⭐️</h3>
+          <p>as it stands</p>
+          <h3 className="home__role-of-honer__champs__name">
+            Chris G & Ian H (4)
+          </h3>
+          <h3>📆 Most Monthly Wins 📆</h3>
           <h3>- -</h3>
-          <h3>🏆 Most Monthly Wins 🏆</h3>
-          <h3>- -</h3>
+          <h3>🏆❄️ Winter Cup Winner ❄️🏆 </h3>
+          <h3> Steve R </h3>
         </div>
 
         <div className="home__role-of-honer__weekly-winner">
           <h3 className="home__role-of-honer__weekly-winner__heading">
-            Weekly Winners ⭐️
+            ⭐️ Weekly Winners ⭐️
           </h3>
-          <div className="col-1-of-3">
-            <p>Wk 1 - Owen M (19)</p>
-            <p>Wk 2 - Amy M (13)</p>
-            <p>Wk 3 - Steve R + Fraser D (23)</p>
-            <p>Wk 4 - Chris G + Amy M (18)</p>
-            <p>Wk 5 - Ruth D (16)</p>
+          <div>
+            <div className="col-1-of-3">
+              <p>Wk 1 - Owen M (19)</p>
+              <p>Wk 2 - Amy M (13)</p>
+              <p>Wk 3 - Steve R + Fraser D (23)</p>
+              <p>Wk 4 - Chris G + Amy M (18)</p>
+              <p>Wk 5 - Ruth D (16)</p>
+            </div>
+            <div className="col-1-of-3">
+              <p>Wk 11 - Andy P (17)</p>
+              <p>Wk 12 - Peter F (19)</p>
+              <p>Wk 13 - Andy B + Robert T (20)</p>
+              <p>Wk 14 - Graeme F (17) </p>
+              <p>Wk 15 - Chris G (18)</p>
+            </div>
+            <div className="col-1-of-3">
+              <p>Wk 21 - </p>
+              <p>Wk 22 - </p>
+              <p>Wk 23 - </p>
+              <p>Wk 24 - </p>
+              <p>Wk 25 - </p>
+            </div>
           </div>
-          <div className="col-1-of-3">
-            <p>Wk 6 - </p>
-            <p>Wk 7 - </p>
-            <p>Wk 8 - </p>
-            <p>Wk 9 - </p>
-            <p>Wk 10 - </p>
-          </div>
-          <div className="col-1-of-3">
-            <p>Wk 11 - </p>
-            <p>Wk 12 - </p>
-            <p>Wk 13 - </p>
-            <p>Wk 14 - </p>
-            <p>Wk 15 - </p>
+          <div>
+            <div className="col-1-of-3">
+              <p>Wk 6 - Ruth D (16) </p>
+              <p>Wk 7 - Ian H (16) </p>
+              <p>Wk 8 - Amy M (23)</p>
+              <p>Wk 9 - Chris G + Steve R (15)</p>
+              <p>Wk 10 - Ian H (17) </p>
+            </div>
+            <div className="col-1-of-3">
+              <p>Wk 16 - Lynn L (21) </p>
+              <p>Wk 17 - Robert T + Chris G (9)</p>
+              <p>Wk 18 - Ian H (19) </p>
+              <p>Wk 19 - Fraser D (17) </p>
+              <p>Wk 20 - Ian H (11) </p>
+            </div>
+            <div className="col-1-of-3">
+              <p>Wk 26 - </p>
+              <p>Wk 27 - </p>
+              <p>Wk 28 - </p>
+              <p>Wk 29 - </p>
+              <p>Wk 30 - </p>
+            </div>
           </div>
         </div>
 
         <div className="home__role-of-honer__monthly-winner">
-          <h3 className="home__role-of-honer__weekly-winner__heading">
-            Monthly Winners 🏆
+          <h3 className="home__role-of-honer__monthly-winner__heading">
+            📆 Monthly Winners 📆
           </h3>
           <div className="col-1-of-2">
             <p>August - Ruth D (69)</p>
-            <p>September - </p>
-            <p>October - </p>
-            <p>November - </p>
+            <p>September - Amy M (55) </p>
+            <p>October - Andy B (56)</p>
+            <p>November - Owen M (55) </p>
             <p>December - </p>
           </div>
           <div className="col-1-of-2">
@@ -345,6 +363,21 @@ export default function PostHome({ matches, randomP, randomPWeek }) {
             <p>April- </p>
             <p>May - </p>
           </div>
+        </div>
+
+        <div className="home__role-of-honer__mobile-sum">
+          <h3 className="home__role-of-honer__mobile-sum__heading">
+            This Weeks Winner
+          </h3>
+          <h3 className="home__role-of-honer__mobile-sum__info">
+            Wk 20 - Ian H (11)
+          </h3>
+          <h3 className="home__role-of-honer__mobile-sum__heading">
+            November Winner
+          </h3>
+          <h3 className="home__role-of-honer__mobile-sum__info">
+            Owen M (55pt)
+          </h3>
         </div>
       </div>
 

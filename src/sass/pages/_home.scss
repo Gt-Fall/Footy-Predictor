@@ -46,6 +46,10 @@
       text-decoration: underline;
       font-size: 4rem;
       padding-bottom: 2rem;
+
+      @include respond(phone) {
+        font-size: 3rem;
+      }
     }
 
     &__champs {
@@ -54,19 +58,25 @@
       @include respond(phone) {
         font-size: 1.9rem;
       }
+
+      &__name {
+        padding-bottom: 1.5rem;
+      }
     }
 
     &__weekly-winner {
       padding: 2rem 6rem;
+      overflow: hidden;
 
       @include respond(phone) {
         padding: 0;
         font-size: 1.3rem;
+        display: none;
       }
 
       &__heading {
         padding-bottom: 2rem;
-        padding-top: 2rem;
+        padding-top: 1rem;
         text-decoration: underline;
 
         @include respond(phone) {
@@ -83,14 +93,36 @@
       @include respond(phone) {
         padding-left: 0;
         font-size: 1.5rem;
+        display: none;
       }
 
       &__heading {
-        padding-top: 6rem;
+        padding-bottom: 2rem;
+        margin-top: 1rem;
+        text-decoration: underline;
         @include respond(phone) {
           padding-left: 0;
           font-size: 2rem;
         }
+      }
+    }
+
+    &__mobile-sum {
+      display: none;
+      @include respond(phone) {
+        display: inline-block;
+      }
+
+      &__heading {
+        text-decoration: underline;
+        padding-left: 1rem;
+        padding-bottom: 0.5rem;
+      }
+
+      &__info {
+        padding-left: 1rem;
+        font-size: 2rem;
+        padding-bottom: 1rem;
       }
     }
   }

@@ -58,7 +58,8 @@ body {
 .home,
 .section-leauge,
 .playerPre,
-.resultsList {
+.resultsList,
+.cup {
   font-family: 'Nunito', sans-serif;
   font-optical-sizing: auto;
   font-weight: 300;
@@ -327,7 +328,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background: #ffae03;
-  padding: 10px 2%; }
+  padding: 10px 1%; }
   .navbar__logo {
     width: 40rem; }
     @media only screen and (max-width: 37.5em) {
@@ -335,7 +336,7 @@ body {
         width: 20rem; } }
   .navbar__icon {
     display: block;
-    width: 3.5rem;
+    width: 3.8rem;
     margin: 0 auto; }
     @media only screen and (max-width: 75em) {
       .navbar__icon {
@@ -356,7 +357,7 @@ body {
     text-align: center; }
   .navbar ul li {
     display: inline-block;
-    margin: 5px 5%;
+    margin: 5px 3%;
     font-size: 2.6rem;
     cursor: pointer; }
     @media only screen and (max-width: 1500px) {
@@ -731,6 +732,84 @@ body {
 .col-3-of-4 {
   width: calc( 3 * ((100% - 3 * 6rem) / 4) + 2 * 6rem); }
 
+@media only screen and (max-width: 37.5em) {
+  .cup {
+    padding: 0; } }
+
+.cup__heading {
+  padding: 2rem 0;
+  font-size: 4rem;
+  text-align: center; }
+
+.cup__info {
+  font-size: 1.8rem;
+  padding: 2rem 1rem; }
+
+.cup__round__heading {
+  padding-left: 1rem;
+  text-decoration: underline;
+  font-size: 1.8rem; }
+
+.cup__round__info {
+  padding-left: 1rem;
+  font-size: 1.4rem; }
+
+.cup__match {
+  padding: 2rem;
+  height: 18rem;
+  width: 36rem;
+  border: 2px solid black;
+  padding: 1rem;
+  text-align: center;
+  margin: 1rem;
+  display: inline-block;
+  box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.2);
+  background-color: #c0bec5; }
+  @media only screen and (max-width: 37.5em) {
+    .cup__match {
+      padding: 0;
+      padding-left: 1rem;
+      margin: 0;
+      margin-bottom: 1rem;
+      margin-left: 0.5rem;
+      width: 98%; } }
+  .cup__match__heading {
+    font-size: 2rem;
+    text-decoration: underline;
+    line-height: 3rem; }
+  .cup__match__table {
+    line-height: 3rem;
+    height: 6rem;
+    width: 34rem; }
+  .cup__match__home, .cup__match__away {
+    border: 1px solid;
+    font-size: 2rem; }
+    .cup__match__home__team, .cup__match__away__team {
+      width: 45%;
+      text-align: left; }
+    .cup__match__home__score, .cup__match__away__score {
+      border: 1px solid;
+      width: 10%;
+      background-color: whitesmoke; }
+    .cup__match__home__actual, .cup__match__away__actual {
+      border: 1px solid;
+      width: 15%; }
+      .cup__match__home__actual__green, .cup__match__away__actual__green {
+        background-color: lightgreen;
+        border: 1px solid; }
+      .cup__match__home__actual__red, .cup__match__away__actual__red {
+        background-color: palevioletred;
+        border: 1px solid; }
+  .cup__match__home {
+    padding-bottom: 1.4rem; }
+  .cup__match__away {
+    padding-bottom: 1.4rem; }
+  .cup__match__vs {
+    font-size: 2rem;
+    text-align: center; }
+  .cup__match__winner {
+    font-size: 1.5rem; }
+
 .guess-page {
   padding: 2rem; }
   .guess-page__info__heading {
@@ -762,6 +841,20 @@ body {
     box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.2);
     background-color: #c0bec5; }
     .guess-page__form__match__heading {
+      font-size: 2.2rem;
+      text-decoration: underline;
+      line-height: 3rem; }
+  .guess-page__form__cup {
+    height: 32rem;
+    width: 30rem;
+    border: 2px solid black;
+    padding: 1rem;
+    text-align: center;
+    margin: 1rem;
+    display: inline-block;
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.2);
+    background-color: #c0bec5; }
+    .guess-page__form__cup__heading {
       font-size: 2.2rem;
       text-decoration: underline;
       line-height: 3rem; }
@@ -826,21 +919,28 @@ body {
       text-decoration: underline;
       font-size: 4rem;
       padding-bottom: 2rem; }
+      @media only screen and (max-width: 37.5em) {
+        .home__role-of-honer__heading {
+          font-size: 3rem; } }
     .home__role-of-honer__champs {
       text-align: center;
       padding-bottom: 2rem; }
       @media only screen and (max-width: 37.5em) {
         .home__role-of-honer__champs {
           font-size: 1.9rem; } }
+      .home__role-of-honer__champs__name {
+        padding-bottom: 1.5rem; }
     .home__role-of-honer__weekly-winner {
-      padding: 2rem 6rem; }
+      padding: 2rem 6rem;
+      overflow: hidden; }
       @media only screen and (max-width: 37.5em) {
         .home__role-of-honer__weekly-winner {
           padding: 0;
-          font-size: 1.3rem; } }
+          font-size: 1.3rem;
+          display: none; } }
       .home__role-of-honer__weekly-winner__heading {
         padding-bottom: 2rem;
-        padding-top: 2rem;
+        padding-top: 1rem;
         text-decoration: underline; }
         @media only screen and (max-width: 37.5em) {
           .home__role-of-honer__weekly-winner__heading {
@@ -852,13 +952,29 @@ body {
       @media only screen and (max-width: 37.5em) {
         .home__role-of-honer__monthly-winner {
           padding-left: 0;
-          font-size: 1.5rem; } }
+          font-size: 1.5rem;
+          display: none; } }
       .home__role-of-honer__monthly-winner__heading {
-        padding-top: 6rem; }
+        padding-bottom: 2rem;
+        margin-top: 1rem;
+        text-decoration: underline; }
         @media only screen and (max-width: 37.5em) {
           .home__role-of-honer__monthly-winner__heading {
             padding-left: 0;
             font-size: 2rem; } }
+    .home__role-of-honer__mobile-sum {
+      display: none; }
+      @media only screen and (max-width: 37.5em) {
+        .home__role-of-honer__mobile-sum {
+          display: inline-block; } }
+      .home__role-of-honer__mobile-sum__heading {
+        text-decoration: underline;
+        padding-left: 1rem;
+        padding-bottom: 0.5rem; }
+      .home__role-of-honer__mobile-sum__info {
+        padding-left: 1rem;
+        font-size: 2rem;
+        padding-bottom: 1rem; }
   .home__random {
     padding-top: 2rem; }
     @media only screen and (max-width: 37.5em) {

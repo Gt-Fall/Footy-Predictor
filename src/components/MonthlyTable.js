@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import supabase from "./supabase";
+import React, { useState, useEffect } from 'react';
+import supabase from './supabase';
 
 export default function MonthlyTable({ players, matches, thisMonth }) {
   let position = 1;
   let overallPosition = 1;
-  let lastPlayed = "";
-  let playersPositions = "";
-  let overallPositions = "";
+  let lastPlayed = '';
+  let playersPositions = '';
+  let overallPositions = '';
   let updateTotalScores = false;
 
   function allScores() {
@@ -24,21 +24,21 @@ export default function MonthlyTable({ players, matches, thisMonth }) {
         if (played.Played && thisMonth == played.Month) {
           lastPlayed = `${played.Home} vs ${played.Away}`;
           if (
-            guess.M2H_Guesses[played.Week - 1][played.MatchNumber - 1] ==
+            guess.M5H_Guesses[played.Week - 1][played.MatchNumber - 1] ==
             played.HomeGoals
           ) {
             goalPoints++;
           }
           if (
-            guess.M2A_Guesses[played.Week - 1][played.MatchNumber - 1] ==
+            guess.M5A_Guesses[played.Week - 1][played.MatchNumber - 1] ==
             played.AwayGoals
           ) {
             goalPoints++;
           }
           if (
-            guess.M2H_Guesses[played.Week - 1][played.MatchNumber - 1] ==
+            guess.M5H_Guesses[played.Week - 1][played.MatchNumber - 1] ==
               played.HomeGoals &&
-            guess.M2A_Guesses[played.Week - 1][played.MatchNumber - 1] ==
+            guess.M5A_Guesses[played.Week - 1][played.MatchNumber - 1] ==
               played.AwayGoals
           ) {
             resultPoints++;
@@ -46,22 +46,22 @@ export default function MonthlyTable({ players, matches, thisMonth }) {
           }
           if (
             played.HomeGoals == played.AwayGoals &&
-            guess.M2H_Guesses[played.Week - 1][played.MatchNumber - 1] ==
-              guess.M2A_Guesses[played.Week - 1][played.MatchNumber - 1]
+            guess.M5H_Guesses[played.Week - 1][played.MatchNumber - 1] ==
+              guess.M5A_Guesses[played.Week - 1][played.MatchNumber - 1]
           ) {
             outcomePoints++;
           }
           if (
             played.HomeGoals > played.AwayGoals &&
-            guess.M2H_Guesses[played.Week - 1][played.MatchNumber - 1] >
-              guess.M2A_Guesses[played.Week - 1][played.MatchNumber - 1]
+            guess.M5H_Guesses[played.Week - 1][played.MatchNumber - 1] >
+              guess.M5A_Guesses[played.Week - 1][played.MatchNumber - 1]
           ) {
             outcomePoints++;
           }
           if (
             played.HomeGoals < played.AwayGoals &&
-            guess.M2H_Guesses[played.Week - 1][played.MatchNumber - 1] <
-              guess.M2A_Guesses[played.Week - 1][played.MatchNumber - 1]
+            guess.M5H_Guesses[played.Week - 1][played.MatchNumber - 1] <
+              guess.M5A_Guesses[played.Week - 1][played.MatchNumber - 1]
           ) {
             outcomePoints++;
           }
@@ -73,7 +73,12 @@ export default function MonthlyTable({ players, matches, thisMonth }) {
       guess.goalPoints = goalPoints;
       guess.resultPoints = resultPoints;
       guess.total = total;
-      guess.overallTotal = total + guess.Aug_Total;
+      guess.overallTotal =
+        total +
+        guess.Aug_Total +
+        guess.Sep_Total +
+        guess.Oct_Total +
+        guess.Nov_Total;
     });
 
     playersPositions = [...players].sort((a, b) =>
@@ -88,14 +93,14 @@ export default function MonthlyTable({ players, matches, thisMonth }) {
       if (updateTotalScores) {
         playersPositions.map(async (playersPositions) => {
           const { data, error } = await supabase
-            .from("Players")
+            .from('Players')
             .update({
-              Sep_Total: playersPositions.total,
-              SepOP: playersPositions.outcomePoints,
-              SepGP: playersPositions.goalPoints,
-              SepRP: playersPositions.resultPoints,
+              Dec_Total: playersPositions.total,
+              DecOP: playersPositions.outcomePoints,
+              DecGP: playersPositions.goalPoints,
+              DecRP: playersPositions.resultPoints,
             })
-            .eq("Player_Id", playersPositions.Player_Id)
+            .eq('Player_Id', playersPositions.Player_Id)
             .select();
         });
       }
@@ -109,7 +114,7 @@ export default function MonthlyTable({ players, matches, thisMonth }) {
     <>
       <div className="section-leauge">
         <div className="section-leauge__heading">
-          <h1>The September League</h1>
+          <h1>The December League</h1>
         </div>
         <div className="section-leauge__info section-leauge__info-overall">
           <p>
@@ -182,10 +187,35 @@ export default function MonthlyTable({ players, matches, thisMonth }) {
                 <tr>
                   <td>{overallPosition++}</td>
                   <td>{standing.Player_Id}</td>
-                  <td>{standing.outcomePoints + standing.AugOP}</td>
-                  <td> {standing.goalPoints + standing.AugGP}</td>
-                  <td>{standing.resultPoints + standing.AugRP}</td>
-                  <td>{standing.total + standing.Aug_Total}</td>
+                  <td>
+                    {standing.outcomePoints +
+                      standing.AugOP +
+                      standing.SepOP +
+                      standing.OctOP +
+                      standing.NovOP}
+                  </td>
+                  <td>
+                    {' '}
+                    {standing.goalPoints +
+                      standing.AugGP +
+                      standing.SepGP +
+                      standing.OctGP +
+                      standing.NovGP}
+                  </td>
+                  <td>
+                    {standing.resultPoints +
+                      standing.AugRP +
+                      standing.SepRP +
+                      standing.OctRP +
+                      standing.NovRP}
+                  </td>
+                  <td>
+                    {standing.total +
+                      standing.Aug_Total +
+                      standing.Sep_Total +
+                      standing.Oct_Total +
+                      standing.Nov_Total}
+                  </td>
                 </tr>
               </tbody>
             ))}
